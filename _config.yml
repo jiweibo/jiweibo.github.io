@@ -1,25 +1,23 @@
 # Site configuration
-domain: "http://songroger.win"
+domain: "http://jiweibo.win"
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://songroger.github.io/" # the base hostname & protocol for your site
+url: "http://jiweibo.github.io/" # the base hostname & protocol for your site
 permalink: /:title/
 avatar: http://7xof48.com1.z0.glb.clouddn.com/avatar.jpg
 about: http://7xof48.com1.z0.glb.clouddn.com/about.jpg
 favicon: http://7xof48.com1.z0.glb.clouddn.com/favicon.png
 basecss: 
 # Theme specific configuration
-title: songroger
+title: Weibo
 description: >
-  Hi there, My name is Luozhan.Song, usually I use "songroger" as my ID everywhere.
-  I was born and raised in Hunan China. 
-  I'm really fond of beautiful design, drawing etc.
+  Hi there, My name is Weibo.Ji
 
 # Contact and social media links
-twitter_username: songrogero
-github_username: songroger
-facebook_username: song.roger.1
-instagram_username: songroger198
-linkedin_username: songroger
+twitter_username: jiweibo
+github_username: jiweibo
+# facebook_username: song.roger.1
+# instagram_username: songroger198
+# linkedin_username: songroger
 
 exclude: ['node_modules', 'gulpfile.js', 'package.json']
 
