@@ -22,6 +22,12 @@ GAN模型中包含两个网络：生成器G和判别器D。G用来捕捉训练�
 ![Weibo](/images/GAN_1.jpg)
 当一个判别模型的能力已经非常强的时候，如果生成模型所生成的数据，还是能够使它产生混淆，无法正确判断的话，那我们就认为这个生成模型实际上已经学到了真实数据的分布。
 
+### GAN生成一维数据
+
+
+### MNIST
+
 
 ### 引用
 [1] <https://www.leiphone.com/news/201701/Kq6FvnjgbKK8Lh8N.html>
+[2] <https://www.saluzi.com/t/gans-50-pytorch/22260>

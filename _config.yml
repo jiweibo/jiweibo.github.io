@@ -3,14 +3,14 @@ domain: "http://jiweibo.win"
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://jiweibo.github.io/" # the base hostname & protocol for your site
 permalink: /:title/
-avatar: http://7xof48.com1.z0.glb.clouddn.com/avatar.jpg
+avatar: /images/avatar.png
 about: http://7xof48.com1.z0.glb.clouddn.com/about.jpg
-favicon: http://7xof48.com1.z0.glb.clouddn.com/favicon.png
+favicon: /images/avatar.png
 basecss: 
 # Theme specific configuration
 title: Weibo
 description: >
-  Hi there, My name is Weibo.Ji
+  Hi there, My name is Weibo
 
 # Contact and social media links
 twitter_username: jiweibo
