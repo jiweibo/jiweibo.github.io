@@ -1,4 +1,4 @@
-# [Weibo](http://jiweibo.github.io/murmur)
+# [Weibo](http://jiweibo.github.io)
 
 <!-- ![preview](preview.png) -->
 
