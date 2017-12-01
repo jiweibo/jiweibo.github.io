@@ -8,9 +8,9 @@ about: http://7xof48.com1.z0.glb.clouddn.com/about.jpg
 favicon: /images/avatar.png
 basecss: 
 # Theme specific configuration
-title: Weibo
+title: Wilber
 description: >
-  Hi there, My name is Weibo
+  Hi there, My name is Wilber
 
 # Contact and social media links
 twitter_username: jiweibo
@@ -29,7 +29,7 @@ kramdown:
 enable_comment: false
 # disqus_account: songroger
 
-gems: ['jekyll-paginate']
+plugins: ['jekyll-paginate']
 # Pagination
 paginate: 5
 paginate_path: /archive/page:num
