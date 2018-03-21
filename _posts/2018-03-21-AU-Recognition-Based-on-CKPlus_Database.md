@@ -20,7 +20,7 @@ description: AU Recognition
 
 这个数据库是在 Cohn-Kanade Dataset 的基础上扩展来的，发布于2010年。这个数据库可以免费获取，包含表情的label和Action Units 的label。
 
-这个数据库包括123个subjects, 593 个 image sequence，每个image sequence的最后一张 Frame 都有action units 的label，而在这593个image sequence中，有327个sequence 有 emotion的 label。这个数据库是人脸表情识别中比较流行的一个数据库，很多文章都会用到这个数据做测试。具体介绍可以参考文献[2]：
+这个数据库包括123个subjects, 593 个 image sequence，每个image sequence的最后一张 Frame 都有action units 的label，而在这593个image sequence中，有327个sequence 有 emotion的 label。这个数据库是人脸表情识别中比较流行的一个数据库，很多文章都会用到这个数据做测试。具体介绍可以参考文献[2]
 
 ![AU.bmp](../images/AU/au.bmp)
 
@@ -91,21 +91,157 @@ CKPlus中的数据集为灰度图，此外，根据landmark将脸部附近区域
 
 ## 模型架构
 
-使用alexnet、vgg、resnet等作为特征提取器， 最终并接上10个逻辑回归单元对每个AU进行分类。
+使用alexnet、vgg、resnet和inception网络架构作为特征提取器， 最终并接上10个逻辑回归单元对上述提到的每个AU进行分类。
+
+总体模型架构如图所示
+![archtecture](../images/AU/model_architecture.bmp)
+
+### AlexNet
+
+![alexnet](../images/AU/alexnet.bmp)
+
+### VGG
+
+![vgg](../images/AU/vgg.bmp)
+
+### Inception
+
+inception基本单元
+
+![inception_cell](../images/AU/inception_cell.bmp)
+
+![inception](../images/AU/inception.bmp)
+
+### ResNet
+
+Resnet基本单元
+
+![resnet_cee](../images/AU/resnet_cell.bmp)
+
+![resnet](../images/AU/resnet.bmp)
+
 
 ## 实验结果
+
+<table>
+    <tr>
+        <th>Model</th>
+        <th>AU1</th>
+        <th>AU2</th>
+        <th>AU4</th>
+        <th>AU5</th>
+        <th>AU6</th>
+        <th>AU7</th>
+        <th>AU12</th>
+        <th>AU15</th>
+        <th>AU17</th>
+        <th>AU25</th>
+    </tr>
+    <tr>
+        <th>AlexNet</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr>
+        <th>VGG16</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr>
+        <th>VGG16_BN</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr>
+        <th>Res18</th>
+        <th>0.69</th>
+        <th>0.79</th>
+        <th>0.52</th>
+        <th>0.71</th>
+        <th>0.62</th>
+        <th>0.48</th>
+        <th>0.66</th>
+        <th>0.24</th>
+        <th>0.57</th>
+        <th>0.8</th>
+    </tr>
+    <tr>
+        <th>Res50</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr>
+        <th>Res101</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr>
+        <th>inception</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+</table>
+
 
 
 ## 引用和致谢
 
-[1] [Facial action unit recognition under incomplete data based
-on multi-label learning with missing labels]()
+[1] Facial action unit recognition under incomplete data based on multi-label learning with missing labels
 
-[2] [The Extended Cohn-Kanade Dataset (CK+): A complete dataset for action unit
-and emotion-specified expression]()
+[2] The Extended Cohn-Kanade Dataset (CK+): A complete dataset for action unit and emotion-specified expression
 
-[3]
+[3] ImageNet Classification with Deep Convolutional Neural Networks
 
-[4]
+[4] VERY DEEP CONVOLUTIONAL NETWORKS FOR LARGE-SCALE IMAGE RECOGNITION
 
-[5]
+[5] Deep Residual Learning for Image Recognition
+
+[6] Going deeper with convolutions
