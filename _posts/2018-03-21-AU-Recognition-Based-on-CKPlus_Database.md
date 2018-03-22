@@ -14,7 +14,7 @@ description: AU Recognition
 
 面部表情是个体之间交互的最自然的非语言交际媒体之一。表情能够表达情感，明确和强调所说的内容，并且表达理解、分歧和意图。机器对面部表情的理解将为描述个体的情绪状态和心理模式提供有力的信息。由于社交机器人，情感在线辅导环境，智能人机交互（HCI）等多种应用领域的巨大潜力，自动表情识别技术近来备受关注，成为热门话题[1]。
 
-本文运用深度学习中迁移学习的技术对AU图像进行分类，达到了相对较好的结果。所有代码见[code]()
+本文运用深度学习中迁移学习的技术对AU图像进行分类，达到了相对较好的结果。所有代码见[code](https://github.com/jiweibo/AU_Recognition)
 
 ## CK+数据库
 
@@ -24,7 +24,7 @@ description: AU Recognition
 
 ![AU.bmp](../images/AU/au.bmp)
 
-现介绍对AU图像的预处理操作(代码见[take_a_look.ipynb]())。
+现介绍对AU图像的预处理操作(代码见[take_a_look.ipynb](https://github.com/jiweibo/AU_Recognition/blob/master/take_a_look.ipynb))。
 
 ### Preprocess
 
@@ -125,56 +125,56 @@ Resnet基本单元
 
 <table>
     <tr>
-        <th>Model</th>
-        <th>AU1</th>
-        <th>AU2</th>
-        <th>AU4</th>
-        <th>AU5</th>
-        <th>AU6</th>
-        <th>AU7</th>
-        <th>AU12</th>
-        <th>AU15</th>
-        <th>AU17</th>
-        <th>AU25</th>
+        <th width="10%">Model</th>
+        <th width="10%">AU1</th>
+        <th width="10%">AU2</th>
+        <th width="10%">AU4</th>
+        <th width="10%">AU5</th>
+        <th width="10%">AU6</th>
+        <th width="10%">AU7</th>
+        <th width="10%">AU12</th>
+        <th width="10%">AU15</th>
+        <th width="10%">AU17</th>
+        <th width="10%">AU25</th>
     </tr>
     <tr>
         <th>AlexNet</th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th>0.83</th>
+        <th>0.88</th>
+        <th>0.8</th>
+        <th>0.72</th>
+        <th>0.74</th>
+        <th>0.63</th>
+        <th>0.86</th>
+        <th>0.64</th>
+        <th>0.88</th>
+        <th>0.92</th>
     </tr>
     <tr>
         <th>VGG16</th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th>0.81</th>
+        <th>0.83</th>
+        <th>0.71</th>
+        <th>0.64</th>
+        <th>0.69</th>
+        <th>0.5</th>
+        <th>0.76</th>
+        <th>0.52</th>
+        <th>0.83</th>
+        <th>0.88</th>
     </tr>
     <tr>
         <th>VGG16_BN</th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th>0.78</th>
+        <th>0.86</th>
+        <th>0.75</th>
+        <th>0.71</th>
+        <th>0.7</th>
+        <th>0.55</th>
+        <th>0.78</th>
+        <th>0.52</th>
+        <th>0.79</th>
+        <th>0.89</th>
     </tr>
     <tr>
         <th>Res18</th>
@@ -191,46 +191,51 @@ Resnet基本单元
     </tr>
     <tr>
         <th>Res50</th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th>0.73</th>
+        <th>0.84</th>
+        <th>0.62</th>
+        <th>0.67</th>
+        <th>0.59</th>
+        <th>0.52</th>
+        <th>0.66</th>
+        <th>0.45</th>
+        <th>0.66</th>
+        <th>0.83</th>
     </tr>
     <tr>
         <th>Res101</th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th>0.69</th>
+        <th>0.78</th>
+        <th>0.65</th>
+        <th>0.7</th>
+        <th>0.5</th>
+        <th>0.5</th>
+        <th>0.64</th>
+        <th>0.33</th>
+        <th>0.68</th>
+        <th>0.8</th>
     </tr>
     <tr>
         <th>inception</th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th>0.45</th>
+        <th>0.45</th>
+        <th>0.31</th>
+        <th>0.22</th>
+        <th>0.12</th>
+        <th>0.11</th>
+        <th>0.17</th>
+        <th>0</th>
+        <th>0.26</th>
+        <th>0.7</th>
     </tr>
 </table>
 
 
+AlexNet is OK
+
+VGG overfeat
+
+Inception and Resnet should reconsider the classifier layer and hyper parameters.
 
 ## 引用和致谢
 
