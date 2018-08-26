@@ -49,7 +49,7 @@ $$P(X^{(j)}=a_{jl}|Y=c_k)=\frac{\sum_{i=1}^NI(x_i^{(j)}=a_{jl},y_i=c_k)}{\sum_{i
 2. 对于给定的实例，计算后验概率
 3. 后验概率最大的类作为输出
 
-###　贝叶斯估计
+### 贝叶斯估计
 
 极大似然估计可能会出现所要估计的概率值为０的情况,故常用贝叶斯估计,$\lambda$常取１
 
@@ -62,11 +62,10 @@ $$P_\lambda(X^{(j)}|Y=c_k)=\frac{\sum_{i=1}^NI(x_i^{(j)}=a_{jl},y_i=c_k)+\lambda
 $$P(Y=c_k)=\frac{\sum_{i=1}^NI(y_i=c_k)+\lambda}{N+K\lambda},k=1,2,...,K$$
 
 ## Code
-
-https://github.com/jiweibo/MachineLearningStudy/tree/master/naive%20bayes
+[https://github.com/jiweibo/MachineLearningStudy/tree/master/naive%20bayes](https://github.com/jiweibo/MachineLearningStudy/tree/master/naive%20bayes)
 
 ## 引用和致谢
 
 [1] 李航. 统计学习方法
 
-[2] https://github.com/apachecn/AiLearning
+[2] [https://github.com/apachecn/AiLearning](https://github.com/apachecn/AiLearning)
