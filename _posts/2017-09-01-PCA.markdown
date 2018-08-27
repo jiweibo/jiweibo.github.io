@@ -1,0 +1,23 @@
+---
+layout: post
+title:  "PCA"
+date:   2017-08-27 11:21:00 +0800
+categories: Machine Learning
+location: Harbin,China
+description: Machine Learning Study Notes--CS229
+---
+---
+
+# pca
+
+
+# Math Fundation
+向量的表示及基变换
+
+特征值和特征向量
+矩阵对角化
+对称矩阵
+
+# 引用
+
+* http://blog.codinglabs.org/articles/pca-tutorial.html
