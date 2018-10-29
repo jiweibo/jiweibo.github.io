@@ -2,12 +2,12 @@
 layout: post
 title:  "build dataset loader"
 date:   2017-08-25 15:55:00 +0800
-categories: dataset
-location: Harbin, China
 description: How to build datasets and dataloader. Tutorial from torch.utils.data
+categories: dataset
+tags: [Deep Learning, DataSet]
+location: Harbin, China
+img: dl.jpg
 ---
----
-Build dataset and dataloader
 
 # 概述
 

@@ -2,9 +2,11 @@
 layout: post
 title:  "AU Recognition Based on CKPlus Database"
 date:   2018-03-21 10:00:00 +0800
-categories: Deep Learning
-location: Harbin,China
 description: AU Recognition 
+categories: Deep Learning
+tag: [Deep Learning, AU Recognition]
+location: Harbin,China
+img: dl.jpg
 ---
 
 # AU识别
@@ -233,7 +235,7 @@ Resnet基本单元
 
 AlexNet is OK
 
-VGG overfeat
+VGG overfit
 
 Inception and Resnet should reconsider the classifier layer and hyper parameters.
 

@@ -2,9 +2,11 @@
 layout: post
 title:  "Neural Style Transfer"
 date:   2017-11-29 17:20:00 +0800
+description: 风格转移
 categories: Deep Learning
+tags: [Deep Learning, Neural Style Transfer]
 location: Harbin,China
-description: Neural Style Transfer 
+img: NST.jpg
 ---
 ---
 
@@ -141,19 +143,19 @@ $$\therefore \frac{\partial{E_l}}{\partial{F^l_{ij}}}=\frac{1}{N^2_lM^2_l} \sum_
         <th>Generate</th>
     </tr>
     <tr>
-        <td><img src='images/dancing.jpg' height="185px"></td>
-        <td><img src='images/starry_night.jpg' height="185px"></td>
-        <td><img src='images/starry_img.jpg' height="185px"></td>
+        <td><img src='../images/dancing.jpg' height="185px"></td>
+        <td><img src='../images/starry_night.jpg' height="185px"></td>
+        <td><img src='../images/starry_img.jpg' height="185px"></td>
     </tr>
     <tr>
-        <td><img src='images/Dipping-Sun.jpg' height="185px"></td>
-        <td><img src='images/picasso.jpg' height="185px"></td>
-        <td><img src='images/picassoDipping-Sun.jpg' height="185px"></td>
+        <td><img src='../images/Dipping-Sun.jpg' height="185px"></td>
+        <td><img src='../images/picasso.jpg' height="185px"></td>
+        <td><img src='../images/picassoDipping-Sun.jpg' height="185px"></td>
     </tr>
     <tr>
-        <td><img src='images/winter-wolf.jpg' height="185px"></td>
-        <td><img src='images/the_shipwreck_of_the_minotaur.jpg' height="185px"></td>
-        <td><img src='images/the_shipwreck_of_the_minotaur-winter_wolf.jpg' height="185px"></td>
+        <td><img src='../images/winter-wolf.jpg' height="185px"></td>
+        <td><img src='../images/the_shipwreck_of_the_minotaur.jpg' height="185px"></td>
+        <td><img src='../images/the_shipwreck_of_the_minotaur-winter_wolf.jpg' height="185px"></td>
     </tr>
   </table>
 </div>

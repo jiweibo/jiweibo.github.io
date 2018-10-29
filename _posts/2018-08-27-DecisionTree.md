@@ -2,9 +2,11 @@
 layout: post
 title:  "DecisionTree"
 date:   2018-08-27 10:00:00 +0800
+description: 决策树
 categories: Machine Learning
+tags: [Machine Learning, DecisionTree]
 location: Harbin,China
-description: DecisionTree
+img: ml.jpeg
 ---
 
 # 决策树
@@ -39,7 +41,7 @@ $$H(Y|X)=\sum_{i=1}^np_iH(Y|X=x_i)$$
 
 $$g(D,A)=H(D)-H(D|A)$$
 
-设训练数据集为D,$|D|$表示样本容量.
+设训练数据集为D,$\|D\|$表示样本容量.
 
 设有$K$个类$C_k,k=1,2...,K$,$C_k$为属于类$C_k$的样本个数.
 

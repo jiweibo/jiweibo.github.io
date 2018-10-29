@@ -2,9 +2,11 @@
 layout: post
 title:  "NaiveBayes"
 date:   2018-08-26 21:00:00 +0800
-categories: Machine Learning
-location: Harbin,China
 description: NaiveBayes 
+categories: Machine Learning
+tags: [Machine Learning, NaiveBayes]
+location: Harbin,China
+img: ml.jpeg
 ---
 
 # 朴素贝叶斯

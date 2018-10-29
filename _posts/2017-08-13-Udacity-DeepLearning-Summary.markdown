@@ -2,11 +2,13 @@
 layout: post
 title:  "优达学城深度学习课程总结"
 date:   2017-08-14 23:16:17 +0800
-categories: summary
-location: Harbin,China
 description: the summary of study deep learning by udacity
+categories: summary
+tags: [Summary]
+location: Harbin,China
+img: books.jpg
 ---
----
+
 优达学城深度学习课程总结
 <br />  
 断断续续两三个月的时间，将优达学城上谷歌团队的深度学习课程视频和练习大致完成（现在还留下大作业和seq2seq模型没有完成，这两个遗留问题，未来慢慢研究，待出结果后在写一篇博文详解），现在简单总结下完成了哪些内容并从中学到了什么。

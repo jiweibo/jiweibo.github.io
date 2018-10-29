@@ -2,12 +2,12 @@
 layout: post
 title:  "Linear Regression"
 date:   2017-08-27 11:21:00 +0800
+description: Machine Learning
 categories: Machine Learning
+tags: [Machine Learning, Linear Regression]
 location: Harbin,China
-description: Machine Learning Study Notes--CS229
+img: ml.jpeg
 ---
----
-CS229--Linear Regression
 
 ## Linear Model
 

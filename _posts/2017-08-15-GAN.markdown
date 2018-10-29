@@ -2,11 +2,13 @@
 layout: post
 title:  "GAN"
 date:   2017-08-15 10:49:00 +0800
-categories: GAN
-location: Harbin, China
 description: GAN
+categories: GAN
+tags: [Deep Learning, GAN]
+location: Harbin, China
+img: dl.jpg
 ---
----
+
 ### 1. 初识GAN  
 
 GAN模型中包含两个网络：生成器G和判别器D。G用来捕捉训练集数据的分布，D用来判别数据来自训练集还是生成器。  
