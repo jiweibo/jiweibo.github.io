@@ -198,9 +198,9 @@ $$E(D)=\sum_p{C(p,D_p)}+\sum_{q \in N_p}{P_1|T[|D_p-D_q|=1]}+\sum_{q \in N_p}{P_
 
 ![sgbm_3](../images/sgbm/sgbm_3.png)
 
-OpenCV中SGBM算法的MODE_SGBM模式，实现了4（或5）方向搜索，这部分的代码，我已加了部分注释，可结合OpenCV源码对照观看，如下所示。
+OpenCV中SGBM算法的MODE_SGBM模式，实现了5个方向搜索，MODE_HH实现了8个方向搜索（可通过注释掉代码中部分，观察任一方向搜索得到的结果），这部分的代码，我已加了部分注释，可结合OpenCV源码对照观看，如下所示。
 
-还有其它MODE_HH、MODE_SGBM_3WAY、MODE_HH4模式，这部分以后更新
+还有MODE_SGBM_3WAY、MODE_HH4模式，这部分以后更新
 
 ```
 /*
