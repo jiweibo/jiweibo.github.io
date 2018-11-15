@@ -243,6 +243,7 @@ static void computeDisparitySGBM(const Mat& img1, const Mat& img2,
 	int D = maxD - minD, width1 = maxX1 - minX1;
 	int INVALID_DISP = minD - 1, INVALID_DISP_SCALED = INVALID_DISP*DISP_SCALE;
 	int SW2 = SADWindowSize.width / 2, SH2 = SADWindowSize.height / 2;
+	// MODE_HH 为8个方向搜索 MODE_SGBM为5个方向搜索
 	bool fullDP = params.mode == StereoSGBMAlgo::MODE_HH;
 	int npasses = fullDP ? 2 : 1;
 	const int TAB_OFS = 256 * 4, TAB_SIZE = 256 + TAB_OFS * 2;
@@ -261,6 +262,7 @@ static void computeDisparitySGBM(const Mat& img1, const Mat& img2,
 
 	// NR - the number of directions. the loop on x below that computes Lr assumes that NR == 8.
 	// if you change NR, please, modify the loop as well.
+	// 为Lr[-1] Lr[D]保留缓冲区
 	int D2 = D + 16, NRD2 = NR2*D2;
 
 	// the number of L_r(.,.) and min_k L_r(.,.) lines in the buffer:
@@ -434,6 +436,7 @@ static void computeDisparitySGBM(const Mat& img1, const Mat& img2,
 				// delta1存储上一行，上一个像素，1方向D个视差的代价最小值
 				// delta2存储上一行，当前像素，2方向D个视差的代价最小值
 				// delta3存储上一行，下一个像素，3方向D个视差的代价最小值
+				// dx=-1时，分别代表4、5、6、7四个方向D个视差的代价最小值
 				int delta0 = minLr[0][xm - dx*NR2] + P2, delta1 = minLr[1][xm - NR2 + 1] + P2;
 				int delta2 = minLr[1][xm + 2] + P2, delta3 = minLr[1][xm + NR2 + 3] + P2;
 
@@ -441,6 +444,7 @@ static void computeDisparitySGBM(const Mat& img1, const Mat& img2,
 				// Lr_p1存储上一行，上一个像素，1方向D个视差的代价
 				// Lr_p2存储上一行，当前像素，2方向D个视差的代价
 				// Lr_p3存储上一行，下一个像素，3方向D个视差的代价
+				// dx=-1时，分别代表4、5、6、7四个方向D个视差的代价
 				CostType* Lr_p0 = Lr[0] + xd - dx*NRD2;
 				CostType* Lr_p1 = Lr[1] + xd - NRD2 + D2;
 				CostType* Lr_p2 = Lr[1] + xd + D2 * 2;
@@ -504,7 +508,7 @@ static void computeDisparitySGBM(const Mat& img1, const Mat& img2,
 
 					if (npasses == 1)
 					{
-						// 更新0方向Lr_pd，实际是计算4方向Lr_pd    不理解为什么这么做
+						// 计算4方向Lr_pd
 						int xm = x*NR2, xd = xm*D2;
 
 						int minL0 = MAX_COST;
@@ -521,7 +525,7 @@ static void computeDisparitySGBM(const Mat& img1, const Mat& img2,
 
 							Lr_p[d] = (CostType)L0;
 							minL0 = std::min(minL0, L0);
-
+							// 共聚合5个方向的代价
 							int Sval = Sp[d] = saturate_cast<CostType>(Sp[d] + L0);
 							if (Sval < minS)
 							{
