@@ -198,11 +198,17 @@ $$E(D)=\sum_p{C(p,D_p)}+\sum_{q \in N_p}{P_1|T[|D_p-D_q|=1]}+\sum_{q \in N_p}{P_
 
 ![sgbm_3](../images/sgbm/sgbm_3.png)
 
+关于多方向DP公式的理解，可以参考下图，简洁明了。
+
+![sgbm_4](../images/sgbm/sgbm_4.png)
+
+![sgbm_5](../images/sgbm/sgbm_5.png)
+
 OpenCV中SGBM算法的MODE_SGBM模式，实现了5个方向搜索，MODE_HH实现了8个方向搜索（可通过注释掉代码中部分，观察任一方向搜索得到的结果），这部分的代码，我已加了部分注释，可结合OpenCV源码对照观看，如下所示。
 
 MODE_SGBM_3WAY模式，顾名思义，从左侧、上侧和右侧三个方向进行搜索，代码中有并行处理部分，速度很快。
 
-MODE_HH4模式代码还没看，这部分以后更新。
+MODE_HH4模式从上下左右四个方向搜索，代码中有并行处理部分，速度依旧很快。
 
 看懂下面的代码，再看MODE_SGBM_3WAY以及MODE_HH4就很容易了。
 
