@@ -24,7 +24,7 @@ img: c++.png
 * #define所使用的名称可能并未进入symbol table，调试增加困难
 * #define不重视作用域，不能提供封装性，无法利用#define创建一个class的专属常量
 
-```C++
+{% highlight C++ %}
 // static class常量 完成 in class 初值设定
 //hpp
 class GamePlayer{
@@ -34,9 +34,9 @@ class GamePlayer{
 };
 //cpp
 const int GamePlayer::NumTurns; //NumTurns定义
-```
+{% endhighlight %}
 
-```C++
+{% highlight C++ %}
 //hpp
 class CostEstimate{
 private:
@@ -46,29 +46,29 @@ private:
 
 //cpp
 const double CostEstimate::FudgeFactor = 1.35;  // 位于实现文件内
-```
+{% endhighlight %}
 
-```C++
+{% highlight C++ %}
 // enum hack
 class GamePlayer{
     enum {NumTurns=5};  // enum hack方法令NumTurns成为5的记号
     int scores[NumTurns];
     ...
 };
-```
+{% endhighlight %}
 
 * #define实现宏很容易出错，建议用template<> inline代替
 
 
 # 条款03：尽可能使用const
 
-```C++
+{% highlight C++ %}
 char greeting[] = "Hello";
 char* p = greeting; // non-const pointer, non-const data
 const char* p = greeting;   //non-const pointer, const data
 char* const p = greeting;   // const pointer,non-const data
 const char* const p = greeting; // const pointer, const data
-```
+{% endhighlight %}
 
 ### const 成员函数
 
@@ -85,7 +85,7 @@ bitwise const 以及 logical const，这部分较为复杂，查看书籍深入�
 
 * 构造函数中最好使用成员初始化列进行初始化，而不要在构造函数本体内使用赋值操作。初始化列中的成员变量，其排列次序应该和它们在class中的声明次序相同
 
-```C++
+{% highlight C++ %}
 class PhoneNumber {...};
 class ABEntry{
 public:
@@ -116,12 +116,12 @@ ABEntry::ABEntry(const std::string& name, const std::string& address,
 {
 
 }
-```
+{% endhighlight %}
 
 * 为免除'跨编译单元初始化次序'问题，以local static对象代替non-local static对象
 
 假设有一单一文件系统类
-```C++
+{% highlight C++ %}
 class FileSystem{       // 来自程序库
 public:
     ...
@@ -129,10 +129,10 @@ public:
     ...
 };
 extern FileSystem tfs;  //预备给客户使用的对象
-```
+{% endhighlight %}
 
 假设客户建立了一个class以处理文件系统内的目录，很自然他们的class会用上tfs对象
-```C++
+{% highlight C++ %}
 class Director{         //由程序库客户建立
 public:
     Directory(params);
@@ -144,7 +144,8 @@ Directory::Directory(params)
     std::size_t disks = tfs.numDisks();     //使用tfs对象
     ...
 }
-```
+{% endhighlight %}
+
 
 客户决定创建一个Directory对象，用来放置临时文件
 ```
@@ -154,7 +155,7 @@ Directory tempDir(params);      //为临时文件
 
 可以将每个non-local static对象搬到自己专属函数内，这些函数返回一个reference指向它所含的对象，换句话说non-local static对象被local static对象替换了，这也是**Singleton**模式的常见手法
 
-```C++
+{% highlight C++ %}
 class FileSystem {...}; //同前
 FileSystem& tfs()       //这个函数替换tfs对象
 {
@@ -173,7 +174,8 @@ Directory& tempDir()
     static Directory td;
     return td;
 }
-```
+{% endhighlight %}
+
 
 这种方法很好的解决static对象初始化顺序问题
 
