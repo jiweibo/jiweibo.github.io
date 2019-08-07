@@ -45,6 +45,26 @@ make -j4
 sudo make install
 ```
 
+### googletest
+
+```shell
+git clone git@github.com:google/googletest.git
+
+cd googletest/googletest/
+
+git checkout release-1.8.1
+
+mkdir build && cd build
+
+cmake -DBUILD_SHARED_LIBS=ON -Dgtest_build_samples=ON ..
+
+make -j4
+
+sudo cp -a ../include/gtest/ /usr/include/
+
+sudo cp -a libgtest_main.so libgtest.so /usr/lib/
+```
+
 ### Anaconda
 
 ```bash
@@ -116,6 +136,13 @@ sudo pkill -SIGHUP dockerd
 docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
 ```
 
+### boost
+
+```bash
+sudo apt-get install libboost-all-dev
+```
+
+### doxygen
 
 ### pre-commit
 
