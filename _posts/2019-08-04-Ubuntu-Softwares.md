@@ -150,6 +150,15 @@ sudo apt-get install libboost-all-dev
 
 ### clang-flormat
 
+```bash
+sudo apt-get install clang-format
+
+# in the project run the command
+clang-format -style=google -dump-config > .clang-format
+
+# modify DerivePointerAlignment false to enable PointerAlignment
+```
+
 ## Life
 
 ### variety
