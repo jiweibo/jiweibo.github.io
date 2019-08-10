@@ -13,6 +13,61 @@ img:
 
 ## Develop
 
+### nvidia-drives
+
+```bash
+sudo apt --purge autoremove nvidia*
+
+sudo add-apt-repository ppa:graphics-drivers/ppa
+
+sudo apt update
+
+sudo apt upgrade
+
+ubuntu-drivers list
+
+sudo apt install nvidia-driver-VERSION_NUMBER_HERE
+
+sudo reboot
+```
+
+### CUDA && CUDNN
+
+```bash
+# wget cuda_***_linux.run
+# for exmaple cuda_10.1
+
+sudo sh cuda_10.1.168_418.67_linux.run
+
+export PATH=/usr/local/cuda-10.1/bin:/usr/local/cuda-10.1/NsightCompute-2019.3${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-10.1/lib64\
+                         ${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
+sudo ldconfig
+```
+
+```bash
+# download deb or tgz cudnn file.
+
+sudo dpkg -i libcudnn7_7.6.1.34-1+cuda10.1_amd64.deb
+
+sudo dpkg -i libcudnn7-dev_7.6.1.34-1+cuda10.1_amd64.deb
+
+sudo dpkg -i libcudnn7-doc_7.6.1.34-1+cuda10.1_amd64.deb
+
+sudo ldconfig
+
+# Verifying cudnn
+
+cp -r /usr/src/cudnn_samples_v7/ $HOME
+
+cd  $HOME/cudnn_samples_v7/mnistCUDNN
+
+make clean && make
+
+./mnistCUDNN
+```
+
 ### gflags
 
 ```bash
