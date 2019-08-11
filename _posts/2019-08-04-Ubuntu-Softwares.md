@@ -197,11 +197,20 @@ docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
 sudo apt-get install libboost-all-dev
 ```
 
+### ProtoBuf
+
+```bash
+sudo apt-get install libprotobuf-dev protobuf-compiler
+```
+
 ### doxygen
 
-### pre-commit
 
 ### cpplint
+
+```bash
+pip install cpplint
+```
 
 ### clang-flormat
 
@@ -212,6 +221,19 @@ sudo apt-get install clang-format
 clang-format -style=google -dump-config > .clang-format
 
 # modify DerivePointerAlignment false to enable PointerAlignment
+```
+
+### pre-commit
+
+```bash
+pip install pre-commit
+
+# in project dir
+pre-commit install
+
+vim .pre-commit-config.yaml
+
+# details refer https://pre-commit.com/
 ```
 
 ## Life
