@@ -141,6 +141,15 @@ sudo cp -a libgtest_main.so libgtest.so /usr/lib/
 sudo snap install --classic code
 ```
 
+### vim
+
+```bash
+sudo apt install vim
+
+# ctags
+sudo apt-get install ctags
+```
+
 ### docker
 
 ```bash
@@ -205,6 +214,12 @@ sudo apt-get install libprotobuf-dev protobuf-compiler
 
 ### doxygen
 
+```bash
+sudo apt-get install doxygen
+
+# Tutorial
+# https://cedar-renjun.github.io/2014/03/21/learn-doxygen-in-10-minutes/
+```
 
 ### cpplint
 
@@ -236,12 +251,58 @@ vim .pre-commit-config.yaml
 # details refer https://pre-commit.com/
 ```
 
+### graphviz
+
+```bash
+sudo apt-get install graphviz
+
+# for python
+pip install graphviz
+```
+
+### opencv
+
+```bash
+```
+
+### BLAS
+
+#### OpenBLAS
+
+```bash
+```
+
+#### ATLAS BLAS
+
+```bash
+```
+
+#### Intel MKL && MKLDNN
+
+```bash
+```
+
+#### cuBLAS
+
+```bash
+```
+
 ## Life
 
 ### variety
 
 ```bash
 sudo apt update && sudo apt install variety
+```
+
+### VNote
+
+```bash
+```
+
+### draw.io
+
+```bash
 ```
 
 ---
