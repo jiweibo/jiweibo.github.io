@@ -275,6 +275,7 @@ pip install graphviz
 #### ATLAS BLAS
 
 ```bash
+sudo apt-get install libatlas-base-dev liblapack-dev libblas-dev
 ```
 
 #### Intel MKL && MKLDNN
