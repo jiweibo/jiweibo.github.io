@@ -316,6 +316,12 @@ sudo apt update && sudo apt install variety
 Netron-3.3.2.AppImage
 ```
 
+### wechat
+
+```bash
+sudo snap install electronic-wechat
+```
+
 ---
 
 # Windows Softwares
