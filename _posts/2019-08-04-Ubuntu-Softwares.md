@@ -299,11 +299,21 @@ sudo apt update && sudo apt install variety
 ### VNote
 
 ```bash
+# https://github.com/tamlok/vnote
 ```
 
 ### draw.io
 
 ```bash
+# https://github.com/jgraph/drawio
+```
+
+### Netron
+
+```bash
+# https://github.com/lutzroeder/netron
+
+Netron-3.3.2.AppImage
 ```
 
 ---
