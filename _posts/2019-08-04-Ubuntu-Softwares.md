@@ -6,7 +6,7 @@ description: Softwares
 categories: Softwares
 tags: [Softwares]
 location: Beijing,China
-img: 
+img: software-unsplash.jpg
 ---
 
 # Ubuntu18.04 Softwares
