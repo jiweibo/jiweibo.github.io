@@ -68,6 +68,12 @@ make clean && make
 ./mnistCUDNN
 ```
 
+### cmake
+
+```bash
+sudo apt-get install cmake
+```
+
 ### gflags
 
 ```bash
@@ -286,6 +292,12 @@ sudo apt-get install libatlas-base-dev liblapack-dev libblas-dev
 #### cuBLAS
 
 ```bash
+```
+
+### eigen
+
+```bash
+sudo apt-get install libeigen3-dev
 ```
 
 ## Life
