@@ -322,6 +322,24 @@ Netron-3.3.2.AppImage
 sudo snap install electronic-wechat
 ```
 
+## Settings
+
+### PS1 (add git branch)
+
+```bash
+# ps1
+# 添加git branch信息
+# 在 .bashrc中添加
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+# 在bashrc中修改PS1
+export PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\[\033[01;36m\]$(parse_git_branch)\[\033[00m\]\$ '
+# or
+export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\[\033[01;36m\]$(parse_git_branch)\[\033[00m\]\$ '
+```
+
 ## Mirrors
 
 ### ubuntu清华镜像
