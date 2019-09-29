@@ -71,7 +71,13 @@ make clean && make
 ### cmake
 
 ```bash
+# apt
 sudo apt-get install cmake
+
+# build from source
+git clone https://github.com/Kitware/CMake.git
+cd CMake
+./bootstrap && make && sudo make install
 ```
 
 ### gflags
