@@ -71,7 +71,13 @@ make clean && make
 ### cmake
 
 ```bash
+# apt
 sudo apt-get install cmake
+
+# build from source
+git clone https://github.com/Kitware/CMake.git
+cd CMake
+./bootstrap && make && sudo make install
 ```
 
 ### gflags
@@ -289,6 +295,14 @@ pip install graphviz
 #### OpenBLAS
 
 ```bash
+# apt
+sudo apt-get install libopenblas-dev
+
+# build from source
+git clone https://github.com/xianyi/OpenBLAS.git
+cd OpenBLAS
+make -j
+sudo make PREFIX=/usr/local/OpenBLAS install
 ```
 
 #### ATLAS BLAS
