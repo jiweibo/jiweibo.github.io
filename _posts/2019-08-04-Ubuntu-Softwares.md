@@ -238,10 +238,23 @@ pip install cpplint
 ```bash
 sudo apt-get install clang-format
 
-# in the project run the command
+# in project, run the command
 clang-format -style=google -dump-config > .clang-format
 
 # modify DerivePointerAlignment false to enable PointerAlignment
+```
+
+### yapf
+
+```bash
+sudo apy-get install yapf
+
+# in project, run the command
+yapf --stype-help > .style.yapf
+# modify indent_width=2
+
+# please refer to help for more infomation
+yapf -h
 ```
 
 ### pre-commit
@@ -287,6 +300,17 @@ sudo apt-get install libatlas-base-dev liblapack-dev libblas-dev
 #### Intel MKL && MKLDNN
 
 ```bash
+# mkl
+# download mkl.tgz and untar
+cd l_mkl_2019.5.281
+sudo ./install.sh
+# /etc/ld.so.config.d/mkl.conf
+# /opt/intel/lib/intel64
+# /opt/intel/mkl/lib/intel64
+# sudo ldconfig -v
+
+# mkldnn
+
 ```
 
 #### cuBLAS
