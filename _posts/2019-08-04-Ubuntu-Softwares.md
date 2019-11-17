@@ -318,7 +318,7 @@ sudo apt-get install libatlas-base-dev liblapack-dev libblas-dev
 # download mkl.tgz and untar
 cd l_mkl_2019.5.281
 sudo ./install.sh
-# /etc/ld.so.config.d/mkl.conf
+# /etc/ld.so.conf.d/mkl.conf
 # /opt/intel/lib/intel64
 # /opt/intel/mkl/lib/intel64
 # sudo ldconfig -v
@@ -330,6 +330,7 @@ sudo ./install.sh
 #### cuBLAS
 
 ```bash
+# install cuda to install cublas by default.
 ```
 
 ### eigen
