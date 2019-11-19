@@ -135,6 +135,16 @@ sudo cp -a libgtest_main.so libgtest.so /usr/lib/
 ### Anaconda
 
 ```bash
+# download anaconda3 install shell script from offical website
+wget https://repo.anaconda.com/archive/Anaconda3-2019.10-Linux-x86_64.sh
+bash Anaconda3-2019.10-Linux-x86_64.sh
+
+# To activate conda’s base environment in your shell session
+eval “$(~/anaconda3/bin/conda shell.bash hook)”
+# To install conda’s shell functions for easier access, first activate, then:
+conda init
+# If you’d prefer that conda’s base environment not be activated on startup, set the auto_activate_base parameter to false:
+conda config --set auto_activate_base false
 ```
 
 ### ShadowSocks
