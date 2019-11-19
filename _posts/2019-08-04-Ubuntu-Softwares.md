@@ -140,7 +140,7 @@ wget https://repo.anaconda.com/archive/Anaconda3-2019.10-Linux-x86_64.sh
 bash Anaconda3-2019.10-Linux-x86_64.sh
 
 # To activate conda’s base environment in your shell session
-eval “$(~/anaconda3/bin/conda shell.bash hook)”
+eval "$(~/anaconda3/bin/conda shell.bash hook)"
 # To install conda’s shell functions for easier access, first activate, then:
 conda init
 # If you’d prefer that conda’s base environment not be activated on startup, set the auto_activate_base parameter to false:
@@ -254,10 +254,23 @@ pip install cpplint
 ```bash
 sudo apt-get install clang-format
 
-# in the project run the command
+# in project, run the command
 clang-format -style=google -dump-config > .clang-format
 
 # modify DerivePointerAlignment false to enable PointerAlignment
+```
+
+### yapf
+
+```bash
+sudo apy-get install yapf
+
+# in project, run the command
+yapf --stype-help > .style.yapf
+# modify indent_width=2
+
+# please refer to help for more infomation
+yapf -h
 ```
 
 ### pre-commit
@@ -285,6 +298,50 @@ pip install graphviz
 ### opencv
 
 ```bash
+# apt
+sudo apt install libopencv-dev
+```
+
+```bash
+# build from source
+sudo apt install build-essential cmake git pkg-config libgtk-3-dev
+sudo apt install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libxvidcore-dev libx264-dev
+sudo apt install libjpeg-dev libpng-dev libtiff-dev gfortran openexr libatlas-base-dev
+sudo apt install python3-dev python3-numpy libtbb2 libtbb-dev libdc1394-22-dev
+
+
+git clone https://github.com/opencv/opencv_contrib.git
+cd opencv_contrib
+git checkout 3.4.8
+cd ..
+git clone https://github.com/opencv/opencv.git
+cd opencv
+git checkout 3.4.8
+
+mkdir build_3.4.8 && cd build_3.4.8
+cmake -D CMAKE_BUILD_TYPE=Release \
+    -D CMAKE_INSTALL_PREFIX=/usr/local \
+    -D INSTALL_C_EXAMPLES=ON \
+    -D INSTALL_PYTHON_EXAMPLES=ON \
+    -D OPENCV_GENERATE_PKGCONFIG=ON \
+    -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
+    -D BUILD_EXAMPLES=ON .. \
+    -D PYTHON3_EXECUTABLE=~/anaconda3/envs/python35/bin/python3 \
+    -D PYTHON_INCLUDE_DIR=~/anaconda3/envs/python35/include/python3.5m \
+    -D PYTHON_LIBRARY=~/anaconda3/envs/python35/lib/libpython3.5m.so \
+    -D PYTHON3_NUMPY_INCLUDE_DIRS=~/anaconda3/envs/python35/lib/python3.5/site-packages/numpy/core/include \
+    -D WITH_CUDA=OFF \
+    -D OPENCV_ENABLE_NONFREE=ON ..
+make -j
+sudo make install
+
+# sudo vim /etc/ld.so.conf.d/opencv.conf
+# add /usr/local/lib to opencv.conf
+sudo ldconfig
+pkg-config --modversion opencv
+
+# for python
+# cp /usr/local/lib/python3.5/site-packages/cv2/python-3.5/cv2.cpython-35m-x86_64-linux-gnu.so ~/anaconda3/envs/python35/lib/python3.5/site-packages/
 ```
 
 ### BLAS
@@ -311,11 +368,23 @@ sudo apt-get install libatlas-base-dev liblapack-dev libblas-dev
 #### Intel MKL && MKLDNN
 
 ```bash
+# mkl
+# download mkl.tgz and untar
+cd l_mkl_2019.5.281
+sudo ./install.sh
+# /etc/ld.so.conf.d/mkl.conf
+# /opt/intel/lib/intel64
+# /opt/intel/mkl/lib/intel64
+# sudo ldconfig -v
+
+# mkldnn
+
 ```
 
 #### cuBLAS
 
 ```bash
+# install cuda to install cublas by default.
 ```
 
 ### eigen
