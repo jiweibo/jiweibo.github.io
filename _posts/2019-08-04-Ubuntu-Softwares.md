@@ -384,7 +384,30 @@ sudo ./install.sh
 #### cuBLAS
 
 ```bash
-# install cuda to install cublas by default.
+# cublas will be installed when cuda is installed.
+```
+
+### Caffe
+
+```bash
+sudo apt-get install -y build-essential cmake git pkg-config
+sudo apt-get install -y libprotobuf-dev libleveldb-dev libsnappy-dev libhdf5-serial-dev protobuf-compiler libatlas-base-dev libboost-all-dev libgflags-dev libgoogle-glog-dev liblmdb-dev
+sudo apt-get install -y python3-dev
+sudo apt-get install -y python3-numpy python3-scipy
+# build and install opencv
+git clone https://github.com/BVLC/caffe
+cd caffe
+# prepare Makefile.config https://github.com/jiweibo/Scripts/blob/master/caffe/makefile.config
+make all -j4
+make test
+make runtest
+cd python
+for req in $(cat requirements.txt); do pip install $req; done
+cd ..
+make pycaffe -j4
+
+vim ~/.bashrc
+export PYTHONPATH=$HOME/repository/caffe/python:$PYTHONPATH
 ```
 
 ### eigen
