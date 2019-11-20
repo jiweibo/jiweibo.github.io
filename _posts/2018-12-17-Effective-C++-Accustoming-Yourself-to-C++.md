@@ -3,8 +3,8 @@ layout: post
 title:  "Effective C++————习惯C++"
 date:   2018-12-17 15:22:00 +0800
 description: Effective C++
-categories: Effective C++
-tags: [C++, Effective C++]
+categories: cc
+tags: [cc]
 location: Harbin,China
 img: c++.png
 ---
