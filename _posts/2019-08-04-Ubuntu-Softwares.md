@@ -463,6 +463,14 @@ source ~/.bashrc
 gem install jekyll bundler
 ```
 
+### SysMonitor
+
+```bash
+sudo add-apt-repository ppa:fossfreedom/indicator-sysmonitor
+sudo apt-get update
+sudo apt-get install indicator-sysmonitor
+```
+
 ## Settings
 
 ### PS1 (add git branch)
