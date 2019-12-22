@@ -47,24 +47,20 @@ sudo ldconfig
 ```
 
 ```bash
-# download deb or tgz cudnn file.
+# download tgz file.
+tar -xzvf cudnn-10.1-linux-x64-v7.6.1.34.tgz
+sudo cp -a cuda/include/cudnn.h /usr/local/cuda-10.1/include/
+sudo cp -a cuda/lib64/libcudnn* /usr/local/cuda-10.1/lib64/
 
+# download deb file.
 sudo dpkg -i libcudnn7_7.6.1.34-1+cuda10.1_amd64.deb
-
 sudo dpkg -i libcudnn7-dev_7.6.1.34-1+cuda10.1_amd64.deb
-
 sudo dpkg -i libcudnn7-doc_7.6.1.34-1+cuda10.1_amd64.deb
-
 sudo ldconfig
-
-# Verifying cudnn
-
+# Verifying cudnn for deb install
 cp -r /usr/src/cudnn_samples_v7/ $HOME
-
 cd  $HOME/cudnn_samples_v7/mnistCUDNN
-
 make clean && make
-
 ./mnistCUDNN
 ```
 
@@ -537,6 +533,36 @@ pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
 # or
 pip install pip -U
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+```
+
+---
+
+# CentOS7 Softwares
+
+## 基本组件
+
+```
+sudo yum update
+
+yum groupinstall "Development Tools"
+
+# gcc485
+yum -y install gcc gcc-c++
+
+# make
+yum -y install make
+
+# cmake
+yum -y install cmake
+
+# wget
+yum -y install wget
+
+# vim
+
+# git
+
+# python3 && pip
 ```
 
 ---
