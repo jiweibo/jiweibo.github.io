@@ -47,24 +47,20 @@ sudo ldconfig
 ```
 
 ```bash
-# download deb or tgz cudnn file.
+# download tgz file.
+tar -xzvf cudnn-10.1-linux-x64-v7.6.1.34.tgz
+sudo cp -a cuda/include/cudnn.h /usr/local/cuda-10.1/include/
+sudo cp -a cuda/lib64/libcudnn* /usr/local/cuda-10.1/lib64/
 
+# download deb file.
 sudo dpkg -i libcudnn7_7.6.1.34-1+cuda10.1_amd64.deb
-
 sudo dpkg -i libcudnn7-dev_7.6.1.34-1+cuda10.1_amd64.deb
-
 sudo dpkg -i libcudnn7-doc_7.6.1.34-1+cuda10.1_amd64.deb
-
 sudo ldconfig
-
-# Verifying cudnn
-
+# Verifying cudnn for deb install
 cp -r /usr/src/cudnn_samples_v7/ $HOME
-
 cd  $HOME/cudnn_samples_v7/mnistCUDNN
-
 make clean && make
-
 ./mnistCUDNN
 ```
 
@@ -379,7 +375,30 @@ sudo ./install.sh
 #### cuBLAS
 
 ```bash
-# install cuda to install cublas by default.
+# cublas will be installed when cuda is installed.
+```
+
+### Caffe
+
+```bash
+sudo apt-get install -y build-essential cmake git pkg-config
+sudo apt-get install -y libprotobuf-dev libleveldb-dev libsnappy-dev libhdf5-serial-dev protobuf-compiler libatlas-base-dev libboost-all-dev libgflags-dev libgoogle-glog-dev liblmdb-dev
+sudo apt-get install -y python3-dev
+sudo apt-get install -y python3-numpy python3-scipy
+# build and install opencv
+git clone https://github.com/BVLC/caffe
+cd caffe
+# prepare Makefile.config https://github.com/jiweibo/Scripts/blob/master/caffe/makefile.config
+make all -j4
+make test
+make runtest
+cd python
+for req in $(cat requirements.txt); do pip install $req; done
+cd ..
+make pycaffe -j4
+
+vim ~/.bashrc
+export PYTHONPATH=$HOME/repository/caffe/python:$PYTHONPATH
 ```
 
 ### eigen
@@ -456,6 +475,14 @@ source ~/.bashrc
 gem install jekyll bundler
 ```
 
+### SysMonitor
+
+```bash
+sudo add-apt-repository ppa:fossfreedom/indicator-sysmonitor
+sudo apt-get update
+sudo apt-get install indicator-sysmonitor
+```
+
 ## Settings
 
 ### PS1 (add git branch)
@@ -522,6 +549,36 @@ pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
 # or
 pip install pip -U
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+```
+
+---
+
+# CentOS7 Softwares
+
+## 基本组件
+
+```
+sudo yum update
+
+yum groupinstall "Development Tools"
+
+# gcc485
+yum -y install gcc gcc-c++
+
+# make
+yum -y install make
+
+# cmake
+yum -y install cmake
+
+# wget
+yum -y install wget
+
+# vim
+
+# git
+
+# python3 && pip
 ```
 
 ---
