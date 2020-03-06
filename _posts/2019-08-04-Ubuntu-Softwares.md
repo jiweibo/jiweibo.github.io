@@ -199,27 +199,22 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 
 sudo docker run hello-world
 
-sudo usermod -aG docker your-user
+sudo usermod -aG docker $USER # 重启后生效
+
+newgrp - docker # 切换一下用户组（刷新缓存）
 ```
 
 ### nvidia-docker
 
 ```bash
-curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | \
-  sudo apt-key add -
-
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
 
-curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | \
- sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+sudo apt-get update && sudo apt-get install -y nvidia-container-toolkit
+sudo systemctl restart docker
 
-sudo apt-get update
-
-sudo apt-get install nvidia-docker2
-
-sudo pkill -SIGHUP dockerd
-
-docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
+docker run --gpus all nvidia/cuda:10.0-base nvidia-smi
 ```
 
 ### boost
@@ -391,6 +386,27 @@ sudo ./install.sh
 
 ```bash
 sudo apt-get install libeigen3-dev
+```
+
+### gperftools
+
+```bash
+# 依赖libunwind
+git clone git://git.sv.gnu.org/libunwind.git
+cd libunwind
+./autogen.sh
+./configure
+make
+make install
+
+cd $REPOS
+
+git clone https://github.com/gperftools/gperftools.git
+cd gperftools
+./autogen.sh
+./configure
+make
+make install
 ```
 
 ## Life
