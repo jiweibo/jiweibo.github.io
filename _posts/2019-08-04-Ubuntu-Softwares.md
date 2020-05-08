@@ -79,52 +79,41 @@ cd CMake
 ### gflags
 
 ```bash
-git clone git@github.com:gflags/gflags.git
-
+#git clone git@github.com:gflags/gflags.git
+git clone https://github.com/gflags/gflags.git
 cd gflags
-
 mkdir build && cd build
-
 cmake .. -DBUILD_SHARED_LIBS=ON
-
 make
-
 sudo make install
 ```
 
 ### glog
 
 ```bash
-git clone git@github.com:google/glog.git
-
+#git clone git@github.com:google/glog.git
+git clone https://github.com/google/glog.git
 cd glog
-
 ./autogen.sh
-
 ./configure
-
 make -j4
-
 sudo make install
+
+# apt
+sudo apt-get install -y libgoogle-glog-dev
 ```
 
 ### googletest
 
 ```shell
-git clone git@github.com:google/googletest.git
-
+#git clone git@github.com:google/googletest.git
+git clone https://github.com/google/googletest.git
 cd googletest/googletest/
-
 git checkout release-1.8.1
-
 mkdir build && cd build
-
 cmake -DBUILD_SHARED_LIBS=ON -Dgtest_build_samples=ON ..
-
 make -j4
-
 sudo cp -a ../include/gtest/ /usr/include/
-
 sudo cp -a libgtest_main.so libgtest.so /usr/lib/
 ```
 
