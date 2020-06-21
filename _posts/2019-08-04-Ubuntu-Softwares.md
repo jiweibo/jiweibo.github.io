@@ -79,52 +79,41 @@ cd CMake
 ### gflags
 
 ```bash
-git clone git@github.com:gflags/gflags.git
-
+#git clone git@github.com:gflags/gflags.git
+git clone https://github.com/gflags/gflags.git
 cd gflags
-
 mkdir build && cd build
-
 cmake .. -DBUILD_SHARED_LIBS=ON
-
 make
-
 sudo make install
 ```
 
 ### glog
 
 ```bash
-git clone git@github.com:google/glog.git
-
+#git clone git@github.com:google/glog.git
+git clone https://github.com/google/glog.git
 cd glog
-
 ./autogen.sh
-
 ./configure
-
 make -j4
-
 sudo make install
+
+# apt
+sudo apt-get install -y libgoogle-glog-dev
 ```
 
 ### googletest
 
 ```shell
-git clone git@github.com:google/googletest.git
-
+#git clone git@github.com:google/googletest.git
+git clone https://github.com/google/googletest.git
 cd googletest/googletest/
-
 git checkout release-1.8.1
-
 mkdir build && cd build
-
 cmake -DBUILD_SHARED_LIBS=ON -Dgtest_build_samples=ON ..
-
 make -j4
-
 sudo cp -a ../include/gtest/ /usr/include/
-
 sudo cp -a libgtest_main.so libgtest.so /usr/lib/
 ```
 
@@ -512,6 +501,17 @@ function parse_git_branch {
 export PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\[\033[01;36m\]$(parse_git_branch)\[\033[00m\]\$ '
 # or
 export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\[\033[01;36m\]$(parse_git_branch)\[\033[00m\]\$ '
+```
+
+
+### cc library
+
+#### jsoncpp
+
+```bash
+sudo apt-get install libjsoncpp-dev
+
+# demo:https://github.com/jiweibo/ProjectTest/tree/master/jsoncpp_test
 ```
 
 ## Mirrors
