@@ -315,26 +315,27 @@ sudo apt install python3-dev python3-numpy libtbb2 libtbb-dev libdc1394-22-dev
 
 git clone https://github.com/opencv/opencv_contrib.git
 cd opencv_contrib
-git checkout 3.4.8
+git checkout 3.4.10
 cd ..
 git clone https://github.com/opencv/opencv.git
 cd opencv
-git checkout 3.4.8
+git checkout 3.4.10
 
-mkdir build_3.4.8 && cd build_3.4.8
-cmake -D CMAKE_BUILD_TYPE=Release \
-    -D CMAKE_INSTALL_PREFIX=/usr/local \
-    -D INSTALL_C_EXAMPLES=ON \
-    -D INSTALL_PYTHON_EXAMPLES=ON \
-    -D OPENCV_GENERATE_PKGCONFIG=ON \
-    -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
-    -D BUILD_EXAMPLES=ON .. \
-    -D PYTHON3_EXECUTABLE=~/anaconda3/envs/python35/bin/python3 \
-    -D PYTHON_INCLUDE_DIR=~/anaconda3/envs/python35/include/python3.5m \
-    -D PYTHON_LIBRARY=~/anaconda3/envs/python35/lib/libpython3.5m.so \
-    -D PYTHON3_NUMPY_INCLUDE_DIRS=~/anaconda3/envs/python35/lib/python3.5/site-packages/numpy/core/include \
-    -D WITH_CUDA=OFF \
-    -D OPENCV_ENABLE_NONFREE=ON ..
+mkdir build_3.4.10 && cd build_3.4.10
+cmake -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX=/usr/local \
+    -DINSTALL_C_EXAMPLES=ON \
+    -DINSTALL_PYTHON_EXAMPLES=ON \
+    -DOPENCV_GENERATE_PKGCONFIG=ON \
+    -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
+    -DBUILD_EXAMPLES=ON .. \
+    -DPYTHON3_EXECUTABLE=$HOME/anaconda3/bin/python3 \
+    -DPYTHON_INCLUDE_DIR=$HOME/anaconda3/include/python3.7m \
+    -DPYTHON_LIBRARY=$HOME/anaconda3/lib/libpython3.7m.so \
+    -DPYTHON3_NUMPY_INCLUDE_DIRS=$HOME/anaconda3/lib/python3.7/site-packages/numpy/core/include \
+    -DWITH_CUDA=OFF \
+    -DBUILD_TIFF=ON \
+    -DOPENCV_ENABLE_NONFREE=ON ..
 make -j
 sudo make install
 
@@ -344,7 +345,7 @@ sudo ldconfig
 pkg-config --modversion opencv
 
 # for python
-# cp /usr/local/lib/python3.5/site-packages/cv2/python-3.5/cv2.cpython-35m-x86_64-linux-gnu.so ~/anaconda3/envs/python35/lib/python3.5/site-packages/
+# cp /usr/local/lib/python3.5/site-packages/cv2/python-3.5/cv2.cpython-35m-x86_64-linux-gnu.so $HOME/anaconda3/lib/python3.7/site-packages/
 ```
 
 ### BLAS
