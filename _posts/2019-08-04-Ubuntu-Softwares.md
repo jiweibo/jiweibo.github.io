@@ -313,18 +313,23 @@ git checkout 3.4.10
 mkdir build_3.4.10 && cd build_3.4.10
 cmake -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=/usr/local \
-    -DINSTALL_C_EXAMPLES=ON \
-    -DINSTALL_PYTHON_EXAMPLES=ON \
+    -DINSTALL_C_EXAMPLES=OFF \
+    -DINSTALL_PYTHON_EXAMPLES=OFF \
     -DOPENCV_GENERATE_PKGCONFIG=ON \
     -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
-    -DBUILD_EXAMPLES=ON .. \
-    -DPYTHON3_EXECUTABLE=$HOME/anaconda3/bin/python3 \
-    -DPYTHON_INCLUDE_DIR=$HOME/anaconda3/include/python3.7m \
-    -DPYTHON_LIBRARY=$HOME/anaconda3/lib/libpython3.7m.so \
-    -DPYTHON3_NUMPY_INCLUDE_DIRS=$HOME/anaconda3/lib/python3.7/site-packages/numpy/core/include \
+    -DBUILD_EXAMPLES=OFF \
     -DWITH_CUDA=OFF \
     -DBUILD_TIFF=ON \
-    -DOPENCV_ENABLE_NONFREE=ON ..
+    -DOPENCV_ENABLE_NONFREE=ON \
+    -DPYTHON3_EXECUTABLE=$HOME/anaconda3/bin/python3 \
+    -DPYTHON3_INCLUDE_DIR=$HOME/anaconda3/include/python3.7m \
+    -DPYTHON3_LIBRARY=$HOME/anaconda3/lib/libpython3.7m.so \
+    -DPYTHON3_NUMPY_INCLUDE_DIRS=$HOME/anaconda3/lib/python3.7/site-packages/numpy/core/include \
+    -DPYTHON_EXECUTABLE=$HOME/anaconda3/envs/python27/bin/python2 \
+    -DPYTHON_INCLUDE_DIR=$HOME/anaconda3/envs/python27/include/python2.7 \
+    -DPYTHON_LIBRARY=$HOME/anaconda3/envs/python27/lib/libpython2.7.so \
+    -DPYTHON_NUMPY_INCLUDE_DIRS=$HOME/anaconda3/envs/python27/lib/python2.7/site-packages/numpy/core/include \
+    ..
 make -j
 sudo make install
 
@@ -334,7 +339,7 @@ sudo ldconfig
 pkg-config --modversion opencv
 
 # for python
-# cp /usr/local/lib/python3.5/site-packages/cv2/python-3.5/cv2.cpython-35m-x86_64-linux-gnu.so $HOME/anaconda3/lib/python3.7/site-packages/
+# cp /usr/local/lib/python3.7/site-packages/cv2/python-3.7/cv2.cpython-37m-x86_64-linux-gnu.so $HOME/anaconda3/lib/python3.7/site-packages/
 ```
 
 ### BLAS
