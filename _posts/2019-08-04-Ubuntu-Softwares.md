@@ -208,10 +208,33 @@ docker run --gpus all nvidia/cuda:10.0-base nvidia-smi
 sudo apt-get install libboost-all-dev
 ```
 
+```bash
+wget https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.tar.gz
+tar -xzf boost_1_73_0.tar.gz
+cd boost_1_73_0
+./bootstrap.sh --with-python=$HOME/anaconda3/bin/python
+# edit genereater 'project-config.jam', add python header and lib dir
+./b2
+sudo ./b2 install
+```
+
 ### ProtoBuf
 
 ```bash
 sudo apt-get install libprotobuf-dev protobuf-compiler
+```
+
+```bash
+git clone https://github.com/protocolbuffers/protobuf.git
+cd protobuf
+git submodule update --init --recursive
+git checkout v3.12.4
+./autogen.sh
+./configure
+make
+make check
+sudo make install
+sudo ldconfig
 ```
 
 ### Pybind11
