@@ -214,6 +214,7 @@ tar -xzf boost_1_73_0.tar.gz
 cd boost_1_73_0
 ./bootstrap.sh --with-python=$HOME/anaconda3/bin/python
 # edit genereater 'project-config.jam', add python header and lib dir
+# using python : 3.7 : "${HOME}/anaconda3" : "${HOME}/anaconda3/include/python3.7m/" : "${HOME}/anaconda3/lib" ;
 ./b2
 sudo ./b2 install
 ```
@@ -235,6 +236,12 @@ make
 make check
 sudo make install
 sudo ldconfig
+
+# for python protobuf
+cd python
+python setup.py build
+python setup.py test
+python setup.py install
 ```
 
 ### Pybind11
