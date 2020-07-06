@@ -351,6 +351,7 @@ cmake -DCMAKE_BUILD_TYPE=Release \
     -DWITH_CUDA=OFF \
     -DBUILD_TIFF=ON \
     -DOPENCV_ENABLE_NONFREE=ON \
+    -DPYTHON_DEFAULT_EXECUTABLE=$(which python) \
     -DPYTHON3_EXECUTABLE=$HOME/anaconda3/bin/python3 \
     -DPYTHON3_INCLUDE_DIR=$HOME/anaconda3/include/python3.7m \
     -DPYTHON3_LIBRARY=$HOME/anaconda3/lib/libpython3.7m.so \
