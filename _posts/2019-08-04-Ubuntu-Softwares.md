@@ -132,6 +132,19 @@ conda init
 conda config --set auto_activate_base false
 ```
 
+### LLVM
+
+```bash
+git clone https://github.com/llvm/llvm-project.git
+cd llvm-project
+git checkout llvmorg-10.0.0
+mkdir build && cd build
+cmake -G 'Unix Makefiles' -DLLVM_ENABLE_PROJECTS=all -DLLVM_TARGETS_TO_BUILD=X86 ../llvm
+cmake -G 'Unix Makefiles' -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra;compiler-rt;debuginfo-tests;libclc;libcxx;libcxxabi;libunwind;lld;lldb;mlir;openmp;parallel-libs;polly;pstl" -DLLVM_TARGETS_TO_BUILD=X86 ../llvm/
+make
+sudo make install
+```
+
 ### ShadowSocks
 
 ```bash
