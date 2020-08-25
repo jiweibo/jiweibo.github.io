@@ -132,6 +132,21 @@ conda init
 conda config --set auto_activate_base false
 ```
 
+### Python
+
+```bash
+sudo apt-get install libffi-dev libssl-dev libsqlite3-dev libbz2-dev libncursesw5-dev liblzma-dev tk-dev uuid-dev libreadline-dev libgdbm-dev
+
+# download python3
+wget https://www.python.org/ftp/python/3.7.9/Python-3.7.9.tgz
+tar xzf Python-3.7.9.tgz && cd Python-3.7.9
+./configure --prefix=$HOME/python37 --enable-shared
+make -j4
+make install
+export PATH=$HOME/python37/bin:$PATH
+export LD_LIBRARY_PATH=$HOME/python37/lib:$LD_LIBRARY_PATH
+```
+
 ### LLVM
 
 ```bash
