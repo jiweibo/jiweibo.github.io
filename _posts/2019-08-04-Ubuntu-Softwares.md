@@ -422,6 +422,27 @@ sudo make PREFIX=/usr/local/OpenBLAS install
 sudo apt-get install libatlas-base-dev liblapack-dev libblas-dev
 ```
 
+#### CBLAS
+
+```bash
+wget http://www.netlib.org/blas/blas-3.8.0.tgz
+wget http://www.netlib.org/blas/blast-forum/cblas.tgz
+tar xzf blas-3.8.0.tgz
+tar xzf cblas.tgz
+
+pushd BLAS-3.8.0
+make
+popd
+pushd CBLAS
+# vim Makefile.in
+# Modify BLLIB to the blas_LINUX.a obtained by compiling BLAS before
+make
+# If you wang to get the dynamic library, you need to make the following modifications:
+# ARCH = gcc
+# ARCHFLAGS = -shared -o
+popd
+```
+
 #### Intel MKL && MKLDNN
 
 ```bash
