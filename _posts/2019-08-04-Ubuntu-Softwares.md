@@ -71,9 +71,20 @@ make clean && make
 sudo apt-get install cmake
 
 # build from source
+sudo apt install libssl-dev
 git clone https://github.com/Kitware/CMake.git
 cd CMake
 ./bootstrap && make && sudo make install
+```
+
+### bazel
+
+```bash
+sudo apt install g++ unzip zip
+wget --no-check-certificate https://github.com/bazelbuild/bazel/releases/download/3.7.0/bazel-3.7.0-installer-linux-x86_64.sh
+chmod +x bazel-3.7.0-installer-linux-x86_64.sh
+./bazel-3.7.0-installer-linux-x86_64.sh --user
+export PATH="$PATH:$HOME/bin"
 ```
 
 ### gflags
@@ -94,8 +105,8 @@ sudo make install
 #git clone git@github.com:google/glog.git
 git clone https://github.com/google/glog.git
 cd glog
-./autogen.sh
-./configure
+mkdir build && cd build
+cmake .. -DBUILD_SHARED_LIBS=ON
 make -j4
 sudo make install
 
@@ -121,8 +132,8 @@ sudo cp -a libgtest_main.so libgtest.so /usr/lib/
 
 ```bash
 # download anaconda3 install shell script from offical website
-wget https://repo.anaconda.com/archive/Anaconda3-2019.10-Linux-x86_64.sh
-bash Anaconda3-2019.10-Linux-x86_64.sh
+wget https://repo.anaconda.com/archive/Anaconda3-2020.11-Linux-x86_64.sh
+bash Anaconda3-2020.11-Linux-x86_64.sh
 
 # To activate conda’s base environment in your shell session
 eval "$(~/anaconda3/bin/conda shell.bash hook)"
@@ -152,10 +163,10 @@ export LD_LIBRARY_PATH=$HOME/python37/lib:$LD_LIBRARY_PATH
 ```bash
 git clone https://github.com/llvm/llvm-project.git
 cd llvm-project
-git checkout llvmorg-10.0.0
+git checkout llvmorg-11.0.0
 mkdir build && cd build
-cmake -G 'Unix Makefiles' -DLLVM_ENABLE_PROJECTS=all -DLLVM_TARGETS_TO_BUILD=X86 ../llvm
-cmake -G 'Unix Makefiles' -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra;compiler-rt;debuginfo-tests;libclc;libcxx;libcxxabi;libunwind;lld;lldb;mlir;openmp;parallel-libs;polly;pstl" -DLLVM_TARGETS_TO_BUILD=X86 ../llvm/
+cmake -G 'Unix Makefiles' -DLLVM_ENABLE_PROJECTS=all -DLLVM_TARGETS_TO_BUILD=all ../llvm
+cmake -G 'Unix Makefiles' -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra;compiler-rt;debuginfo-tests;libclc;libcxx;libcxxabi;libunwind;lld;lldb;mlir;openmp;parallel-libs;polly;pstl" -DLLVM_TARGETS_TO_BUILD=all ../llvm/
 make
 sudo make install
 ```
@@ -163,11 +174,7 @@ sudo make install
 ### ShadowSocks
 
 ```bash
-```
 
-### Proxychains4
-
-```bash
 ```
 
 ### vscode
@@ -237,12 +244,10 @@ sudo apt-get install libboost-all-dev
 ```
 
 ```bash
-wget https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.tar.gz
-tar -xzf boost_1_73_0.tar.gz
-cd boost_1_73_0
+wget https://dl.bintray.com/boostorg/release/1.74.0/source/boost_1_74_0.tar.gz
+tar -xzf boost_1_74_0.tar.gz
+cd boost_1_74_0
 ./bootstrap.sh --with-python=$HOME/anaconda3/bin/python
-# edit genereater 'project-config.jam', add python header and lib dir
-# using python : 3.7 : "${HOME}/anaconda3" : "${HOME}/anaconda3/include/python3.7m/" : "${HOME}/anaconda3/lib" ;
 ./b2
 sudo ./b2 install
 ```
@@ -254,10 +259,11 @@ sudo apt-get install libprotobuf-dev protobuf-compiler
 ```
 
 ```bash
+sudo apt install autoconf automake libtool
 git clone https://github.com/protocolbuffers/protobuf.git
 cd protobuf
 git submodule update --init --recursive
-git checkout v3.12.4
+git checkout v3.14.0
 ./autogen.sh
 ./configure
 make
@@ -362,43 +368,41 @@ sudo apt install python3-dev python3-numpy libtbb2 libtbb-dev libdc1394-22-dev
 
 git clone https://github.com/opencv/opencv_contrib.git
 cd opencv_contrib
-git checkout 3.4.10
+git checkout 4.5.0
 cd ..
 git clone https://github.com/opencv/opencv.git
 cd opencv
-git checkout 3.4.10
+git checkout 4.5.0
 
-mkdir build_3.4.10 && cd build_3.4.10
+mkdir build_4.5.0 && cd build_4.5.0
+ANACONDA_HOME=$HOME/anaconda3
 cmake -DCMAKE_BUILD_TYPE=Release \
-    -DCMAKE_INSTALL_PREFIX=/usr/local \
-    -DINSTALL_C_EXAMPLES=OFF \
-    -DINSTALL_PYTHON_EXAMPLES=OFF \
-    -DOPENCV_GENERATE_PKGCONFIG=ON \
-    -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
-    -DBUILD_EXAMPLES=OFF \
-    -DWITH_CUDA=OFF \
-    -DBUILD_TIFF=ON \
-    -DOPENCV_ENABLE_NONFREE=ON \
-    -DPYTHON_DEFAULT_EXECUTABLE=$(which python) \
-    -DPYTHON3_EXECUTABLE=$HOME/anaconda3/bin/python3 \
-    -DPYTHON3_INCLUDE_DIR=$HOME/anaconda3/include/python3.7m \
-    -DPYTHON3_LIBRARY=$HOME/anaconda3/lib/libpython3.7m.so \
-    -DPYTHON3_NUMPY_INCLUDE_DIRS=$HOME/anaconda3/lib/python3.7/site-packages/numpy/core/include \
-    -DPYTHON_EXECUTABLE=$HOME/anaconda3/envs/python27/bin/python2 \
-    -DPYTHON_INCLUDE_DIR=$HOME/anaconda3/envs/python27/include/python2.7 \
-    -DPYTHON_LIBRARY=$HOME/anaconda3/envs/python27/lib/libpython2.7.so \
-    -DPYTHON_NUMPY_INCLUDE_DIRS=$HOME/anaconda3/envs/python27/lib/python2.7/site-packages/numpy/core/include \
-    ..
+      -DCMAKE_INSTALL_PREFIX=/usr/local \
+      -DINSTALL_C_EXAMPLES=OFF \
+      -DINSTALL_PYTHON_EXAMPLES=OFF \
+      -DOPENCV_GENERATE_PKGCONFIG=ON \
+      -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
+      -DBUILD_EXAMPLES=OFF \
+      -DWITH_CUDA=OFF \
+      -DBUILD_TIFF=ON \
+      -DOPENCV_FORCE_3RDPARTY_BUILD=ON \
+      -DOPENCV_ENABLE_NONFREE=ON \
+      -DPYTHON_DEFAULT_EXECUTABLE=$(which python) \
+      -DPYTHON_EXECUTABLE=$ANACONDA_HOME/bin/python3 \
+      -DPYTHON_INCLUDE_DIR=$ANACONDA_HOME/include/python3.8 \
+      -DPYTHON_LIBRARY=$ANACONDA_HOME/lib/libpython3.8.so \
+      -DPYTHON_NUMPY_INCLUDE_DIRS=$ANACONDA_HOME/lib/python3.8/site-packages/numpy/core/include \
+      ..
 make -j
 sudo make install
 
 # sudo vim /etc/ld.so.conf.d/opencv.conf
 # add /usr/local/lib to opencv.conf
 sudo ldconfig
-pkg-config --modversion opencv
+pkg-config --modversion opencv4
 
 # for python
-# cp /usr/local/lib/python3.7/site-packages/cv2/python-3.7/cv2.cpython-37m-x86_64-linux-gnu.so $HOME/anaconda3/lib/python3.7/site-packages/
+# cp /usr/local/lib/python3.8/site-packages/cv2/python-3.8/cv2.cpython-38-x86_64-linux-gnu.so $ANACONDA_HOME/lib/python3.8/site-packages/
 ```
 
 ### BLAS
@@ -468,10 +472,18 @@ sudo ./install.sh
 ### Caffe
 
 ```bash
-sudo apt-get install -y build-essential cmake git pkg-config
-sudo apt-get install -y libprotobuf-dev libleveldb-dev libsnappy-dev libhdf5-serial-dev protobuf-compiler libatlas-base-dev libboost-all-dev libgflags-dev libgoogle-glog-dev liblmdb-dev
-sudo apt-get install -y python3-dev
-sudo apt-get install -y python3-numpy python3-scipy
+# compile and install
+# cmake
+# boost
+# gflags
+# glog
+# protobuf
+# openblas
+# install python numpy and scipy
+
+sudo apt-get install -y build-essential git pkg-config
+sudo apt-get install -y libleveldb-dev libsnappy-dev libhdf5-serial-dev protobuf-compiler liblmdb-dev
+
 # build and install opencv
 git clone https://github.com/BVLC/caffe
 cd caffe
@@ -503,7 +515,7 @@ cd libunwind
 ./autogen.sh
 ./configure
 make
-make install
+sudo make install
 
 cd $REPOS
 
@@ -518,10 +530,17 @@ make install
 ### gRPC
 
 ```bash
+sudo apt install build-essential autoconf libtool pkg-config
 git clone https://github.com/grpc/grpc.git
 cd gtpc
+git checkout v1.34.0
 git submodule update --init --recursive
-
+mkdir build && cd build
+cmake -DgRPC_INSTALL=ON \
+      -DgRPC_BUILD_TESTS=OFF \
+      ..
+make -j
+sudo make install
 ```
 
 ## Life
