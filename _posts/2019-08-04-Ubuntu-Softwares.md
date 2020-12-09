@@ -119,13 +119,12 @@ sudo apt-get install -y libgoogle-glog-dev
 ```shell
 #git clone git@github.com:google/googletest.git
 git clone https://github.com/google/googletest.git
-cd googletest/googletest/
-git checkout release-1.8.1
+cd googletest
+git checkout release-1.10.0
 mkdir build && cd build
 cmake -DBUILD_SHARED_LIBS=ON -Dgtest_build_samples=ON ..
 make -j4
-sudo cp -a ../include/gtest/ /usr/include/
-sudo cp -a libgtest_main.so libgtest.so /usr/lib/
+sudo make install
 ```
 
 ### Anaconda
@@ -190,6 +189,9 @@ sudo apt install vim
 
 # ctags
 sudo apt-get install ctags
+
+# build from source
+https://jiweibo.github.io/VIM/
 ```
 
 ### docker
@@ -538,6 +540,7 @@ git submodule update --init --recursive
 mkdir build && cd build
 cmake -DgRPC_INSTALL=ON \
       -DgRPC_BUILD_TESTS=OFF \
+      -DgRPC_PROTOBUF_PROVIDER=package \
       ..
 make -j
 sudo make install
