@@ -512,21 +512,22 @@ sudo apt-get install libeigen3-dev
 
 ```bash
 # 依赖libunwind
-git clone git://git.sv.gnu.org/libunwind.git
+git clone https://github.com/libunwind/libunwind.git
 cd libunwind
 ./autogen.sh
 ./configure
 make
 sudo make install
 
-cd $REPOS
+cd ..
 
 git clone https://github.com/gperftools/gperftools.git
 cd gperftools
 ./autogen.sh
 ./configure
 make
-make install
+make check
+sudo make install
 ```
 
 ### gRPC
