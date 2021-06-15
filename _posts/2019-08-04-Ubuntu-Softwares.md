@@ -98,6 +98,26 @@ chmod +x bazel-3.7.0-installer-linux-x86_64.sh
 export PATH="$PATH:$HOME/bin"
 ```
 
+### openssl
+```bash
+git clone https://github.com/openssl/openssl.git
+cd openssl
+./Configure --prefix=/usr/local/ssl --openssldir=/usr/local/ssl '-Wl,-rpath,$(LIBRPATH)'
+make -j
+make install
+```
+
+### curl
+```bash
+git clone https://github.com/curl/curl.git
+cd curl
+./buildconf
+./configure --prefix=/usr/local --with-openssl=/usr/local/ssl/
+make -j
+make install
+```
+
+
 ### gflags
 
 ```bash
