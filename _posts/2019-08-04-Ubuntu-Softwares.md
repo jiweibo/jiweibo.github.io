@@ -191,14 +191,17 @@ export LD_LIBRARY_PATH=$HOME/python37/lib:$LD_LIBRARY_PATH
 ### LLVM
 
 ```bash
+sudo apt-get install clang lld
 git clone https://github.com/llvm/llvm-project.git
 cd llvm-project
-git checkout llvmorg-11.0.0
+git checkout llvmorg-14.0.0-rc1
 mkdir build && cd build
-cmake -G 'Unix Makefiles' -DLLVM_ENABLE_PROJECTS=all -DLLVM_TARGETS_TO_BUILD=all ../llvm
-cmake -G 'Unix Makefiles' -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra;compiler-rt;debuginfo-tests;libclc;libcxx;libcxxabi;libunwind;lld;lldb;mlir;openmp;parallel-libs;polly;pstl" -DLLVM_TARGETS_TO_BUILD=all ../llvm/
-make
-sudo make install
+# cmake -G 'Unix Makefiles' -DLLVM_ENABLE_PROJECTS=all -DLLVM_TARGETS_TO_BUILD=all ../llvm
+# cmake -G 'Unix Makefiles' -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra;compiler-rt;debuginfo-tests;libclc;libcxx;libcxxabi;libunwind;lld;lldb;mlir;openmp;parallel-libs;polly;pstl" -DLLVM_TARGETS_TO_BUILD=all ../llvm/
+# make
+# sudo make install
+cmake -G Ninja ../llvm -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra;mlir" -DLLVM_BUILD_EXAMPLES=ON -DLLVM_TARGETS_TO_BUILD="X86;NVPTX;AMDGPU" -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_ASSERTIONS=ON -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DLLVM_ENABLE_LLD=ON
+ninja
 ```
 
 ### ShadowSocks
