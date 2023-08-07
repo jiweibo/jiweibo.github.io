@@ -1247,5 +1247,6 @@ void RelayBuildModule::BuildRelay(IRModule relay_module, const String& mod_name)
 
 ## References
 
+- https://tvm.apache.org/docs/arch/index.html
 - https://zhuanlan.zhihu.com/p/139089239
 - https://zhuanlan.zhihu.com/p/589619468
