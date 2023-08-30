@@ -581,6 +581,25 @@ make -j
 sudo make install
 ```
 
+### LTTng
+
+```
+# https://lttng.org/docs/v2.13
+
+sudo apt install pkg-config liburcu‑dev libpopt‑dev libxml2‑dev babeltrace2 liblttng‑ust‑dev
+wget https://lttng.org/files/lttng-tools/lttng-tools-latest-2.13.tar.bz2 &&
+tar -xf lttng-tools-latest-2.13.tar.bz2 &&
+cd lttng-tools-2.13.* &&
+./configure &&
+make -j8 &&
+sudo make install &&
+sudo ldconfig
+
+sudo apt-add-repository ppa:lttng/ppa
+sudo apt-get update
+sudo apt-get install babeltrace2
+```
+
 ## Life
 
 ### variety
